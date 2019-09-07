@@ -1,0 +1,18 @@
+function graficar(valores, valores2,titulo,f)
+figure1 = figure(f);
+
+axes1 = axes('Parent',figure1);
+box(axes1,'on');
+hold(axes1,'all');
+title(titulo)
+xlabel('Iteraciones') 
+ylabel('Errores');
+legend('Gauss-Jacobi');
+plot([valores],'r*'); hold on;
+
+axes2 = axes('Parent',figure1);
+box(axes2,'on');
+hold(axes2,'all');
+
+
+end
