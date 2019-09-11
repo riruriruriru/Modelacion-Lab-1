@@ -1,33 +1,33 @@
-function graficar(valores, valores2,f)
+function graficar(valores, valores2,x,f)
 figure1 = figure(f);
 
 axes1 = axes('Parent',figure1);
 
-plot([valores],'r*');
+plot([x],[valores],'r*');
 grid on
-title("wu")
-xlabel('Iteraciones') 
-ylabel('Errores');
-legend('Gauss-Jacobi');
+title("Gráfico de a(x)")
+xlabel('Eje x') 
+ylabel('Eje y');
+legend('a(x)');
 figure2 = figure(f+1)
 axes2 = axes('Parent',figure2);
-plot([valores2],'g+'); 
+plot([x],[valores2],'g+'); 
 grid on
-title("owo")
-xlabel('Iteraciones') 
-ylabel('Errores');
-legend('Gauss-Jacobi');
+title("Gráfico de b(x)")
+xlabel('Eje x') 
+ylabel('Eje y');
+legend('b(x)');
 figure3 = figure(f+2)
 axes3 = axes('Parent',figure3);
 box(axes3,'on');
 hold(axes3,'all');
-plot([valores],'r*'); hold on;
-plot([valores2],'g+'); hold on;
+plot([x],[valores],'r*'); hold on;
+plot([x],[valores2],'g+'); hold on;
 grid on
-title("owo")
-xlabel('Iteraciones') 
-ylabel('Errores');
-legend('Gauss-Jacobi',"'d'sa'd");
+title("Gráfico de a(x) y b(x)")
+xlabel('Eje x') 
+ylabel('Eje y');
+legend('a(x)',"b(x)");
 
 
 end
