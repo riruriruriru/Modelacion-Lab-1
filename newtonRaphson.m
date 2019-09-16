@@ -1,19 +1,24 @@
-function [resultado] = newtonRaphson(pol,iter, error,x0)
-if iter == 0
-    resultado = x0;
-    return
+%Función Newton-Raphson.
+%ENTRADA: * polinomio
+%         * cantidad de iteraciones máxima
+%         * Error maximo 
+%         * Valor inicial del algoritmo. 
+%SALIDA:la raíz del polinomio ingresado.     
+function [Respuesta] = newtonRaphson(fun, iteracionMax, Error,X0)
+    DevFun = polyder(fun); %funcion que obtiene la derivada
+    X1 = X0;
+    Respuesta = X1 - (polyval(fun,X1)/polyval(DevFun,X1));
+    ErrorR = abs(Respuesta - X1);
+    if ErrorR < Error 
+        disp(Respuesta)
+        return
+    elseif iteracionMax == 0
+        disp(Respuesta)
+        return
+    else
+        iteracionMax  = iteracionMax-1;
+       %llamadoRecursivo = newton(fun, iteracionMax, Error, Respuesta); %llamado recursivo
+        Respuesta = newtonRaphson(fun, iteracionMax, Error, Respuesta); %llamado recursivo
+       % Respuesta = [Respuesta,llamadoRecursivo];
+    end
 end
-
-newPol = polyder(pol);
-f = polyval(pol,x0);
-diffF = polyval(newPol, x0);
-x1 = x0-(f/diffF)
-actualError = abs((x1-x0)/x0)
-if actualError < error
-    resultado = x0;
-    return
-end
-
-resultado = newtonRaphson(newPol, iter-1, error,x1);
-
-
