@@ -1,0 +1,41 @@
+prompt = 'Ingrese el polinomio en su representación array:\n';
+polinomio = [];
+x0 = 0;
+iter = 0;
+err = 0;
+%newtonRaphson(polinomio)
+while length(polinomio) == 0
+    try 
+        polinomio = input(prompt)
+       
+    catch
+       disp("Error al ingresar polinomio, intentelo nuevamente") 
+    end
+end
+
+while isnumeric(x0) == 0 || iter <= 0
+    try 
+        iter = input(prompt)
+       
+    catch
+       disp("Error al ingresar numero iteraciones, intentelo nuevamente") 
+    end
+end
+
+while isnumeric(x0) == 0 || iter <= 0
+    try 
+        iter = input(prompt)
+       
+    catch
+       disp("Error al ingresar numero iteraciones, intentelo nuevamente") 
+    end
+end
+
+while isnumeric(iter) == 0
+    try 
+        x0 = input(prompt)
+       
+    catch
+       disp("Error al ingresar x0, intentelo nuevamente") 
+    end
+end
